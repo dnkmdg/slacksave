@@ -5,7 +5,7 @@
      
     CREATE DATABASE `my_slack_db` DEFAULT CHARACTER SET = `utf8` DEFAULT COLLATE = `utf8_general_ci`;
     
-    USE 'my_slack_db';
+    USE `my_slack_db`;
     
     CREATE TABLE `intro_post` (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -20,8 +20,9 @@
       `user_name` varchar(36) DEFAULT NULL,
       `text` varchar(4000) DEFAULT NULL,
       `trigger_word` varchar(24) DEFAULT NULL,
+      `user_avatar` varchar(256) DEFAULT NULL,
       PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
   */
 
   /* 
@@ -46,10 +47,11 @@
   define('DBNAME','');  
   
   /* 
-    Define Slack token and Slack team to validate the call
+    Define Slack token and Slack team to validate the call, Slack API token to extract user avatars
   */   
   define('SL_TOKEN','');
   define('SL_TEAM','');
+  define('SL_API_TOKEN','');
   
   /*
     Define response messages for the Slack bot to display in the channel.

@@ -27,7 +27,7 @@
     function get_presentations(){
       $sql = "
         SELECT
-          user_name, timestamp, text 
+          user_name, user_avatar, timestamp, text 
         FROM 
           intro_post t1 
         WHERE 
@@ -51,6 +51,8 @@
     
     function save_presentation($data){
       $binds = array_merge(array('id' => null),$data);
+      $binds['user_avatar'] = $this->get_avatar($data['user_id']);
+      
       $vals = implode(",",
                       array_map(
                         function($a){
@@ -69,6 +71,18 @@
       }       
       
       $this->output_json($ret_val);
+    }
+    
+    function get_avatar($user_id){
+      $url = 'https://slack.com/api/users.info?token='.SL_API_TOKEN.'&user='.$user_id;
+      $response = json_decode(file_get_contents($url));
+      
+      if($response->ok == true && isset($response->user->profile->image_512)):
+        return $response->user->profile->image_512;
+      else:
+        return '';
+      endif;
+      
     }
     
     function output_json($data){

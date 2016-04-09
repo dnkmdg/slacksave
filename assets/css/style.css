@@ -6,7 +6,7 @@
  */
 
 html {
-  font-family: sans-serif; /* 1 */
+  font-family: "Lato", sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -426,18 +426,51 @@ textarea {
 
 /* END NORMALIZE : BEGIN FINHACKAT */
 
+body {
+  font-size: 19px;
+  line-height: 26px;
+}
+
 header {
   text-align: center;
 }
+  
+  header h1 {
+    font-weight: 900;
+  }
 
 #container{
-  max-width: 90%;
-  width: 900px;
   margin: 0 auto;
+  max-width: 90%;
+  width: 780px;
 }
 
 article.presentation {
-  padding: 1em 2em;
   background-color: #fafafa;
   margin: 1em;
+  padding: 1em 2em;
+  border-radius: 3px;
 }
+
+.presentation h2, .presentation h5 {
+  margin: 0;
+  text-align: center;
+}
+  
+  .presentation h5 {
+    color: #666;
+    font-size: .6em;
+    font-style: italic;
+    font-weight: normal;
+  }
+
+.presentation .media {
+  max-width: 120px;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+  .media img {
+    max-width: 100%;
+    border-radius: 120px;
+  }

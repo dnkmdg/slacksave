@@ -14,7 +14,8 @@
     <meta name="author" content="">
     <meta name="viewport" content="initial-scale=1.0">
     <!-- !CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=1">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+    <link href="assets/css/style.css?v=1" rel="stylesheet">
     
   </head>
   
