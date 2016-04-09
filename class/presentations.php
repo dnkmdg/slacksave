@@ -90,4 +90,17 @@
       if(is_array($data)) $data = json_encode($data);
       echo $data;      
     }
+    
+    public static function format_text($text){
+      if(substr($text, 0,6) == 'intro '):
+        $text = substr($text, 6);
+      endif;
+      
+      $text = preg_replace_callback("/<(.*?)>/", function($matches){
+        $url = explode("|",$matches[1]);
+        return '<a href="'.$url[0].'">'.$url[1].'</a>';
+      }, $text);
+      
+      return nl2br($text);
+    }
   }
