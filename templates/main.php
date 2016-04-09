@@ -8,7 +8,7 @@
   	<meta charset="utf-8">
   	<!--[if IE]><![endif]-->
   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  	<title>&lt;F/NHACKAT&gt; - Medlemspresentationer</title>
+  	<title><?php echo AUTH_REALM ?></title>
   	<meta name="description" content="">
   	<meta name="keywords" content="" />
   	<meta name="author" content="">
@@ -22,7 +22,7 @@
   <body>
   	<div id="container">
   		<header>
-    		<h1>&lt;F/NHACKAT&gt;</h1>
+    		<h1></h1>
   		</header><!-- /header -->
   		
   		<section id="main">
