@@ -22,7 +22,7 @@
   <body>
   	<div id="container">
   		<header>
-    		<h1></h1>
+    		<h1><?php echo AUTH_REALM ?></h1>
   		</header><!-- /header -->
   		
   		<section id="main">
