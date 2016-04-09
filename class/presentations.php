@@ -26,14 +26,14 @@
     
     function get_presentations(){
       $sql = "
-	      SELECT
-		      user_name, timestamp, text 
-		    FROM 
-		      intro_post t1 
-		    WHERE 
-		      t1.id = (
-		        SELECT 
-		          t2.id
+        SELECT
+          user_name, timestamp, text 
+        FROM 
+          intro_post t1 
+        WHERE 
+          t1.id = (
+            SELECT 
+              t2.id
             FROM 
               intro_post t2
             WHERE 
@@ -44,9 +44,9 @@
         ORDER BY user_name;
       ";
       
-		  $presentations = Db::select($sql,'assoc');
-		  
-		  return $presentations;
+      $presentations = Db::select($sql,'assoc');
+      
+      return $presentations;
     }
     
     function save_presentation($data){
