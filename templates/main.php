@@ -24,7 +24,7 @@
     <div id="container">
       <header>
         <h1>
-          <img src="/assets/img/logo.svg" onerror="this.src='/assets/img/logo.png'; this.onerror=null;" alt="<?php echo AUTH_REALM ?>">
+          <img src="assets/img/logo.svg" onerror="this.src='assets/img/logo.png'; this.onerror=null;" alt="<?php echo AUTH_REALM ?>">
         </h1>
         <ul>
           <?php
