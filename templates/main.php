@@ -24,15 +24,29 @@
     <div id="container">
       <header>
         <h1><?php echo AUTH_REALM ?></h1>
+        <ul>
+          <?php
+            
+            foreach(Slacker::get_channels() as $channel):
+              $active = isset($_GET['channel']) ? $_GET['channel'] : '';
+          ?>
+            <li><a class="<?php echo $channel['channel_name'] == $active ? 'active' : '' ?>" href="?channel=<?php echo $channel['channel_name'] ?>">#<?php echo $channel['channel_name'] ?></a></li> 
+          <?php
+            endforeach;
+          ?>
+        </ul>
       </header><!-- /header -->
       
       <section id="main">
-        <?php
-          $presentations = new Presentations();
-          
-          foreach($presentations->get_presentations() as $p):
-            require 'templates/presentation.php';
-          endforeach;
+        <?php          
+          if(isset($_GET['channel'])):
+            $slack = new Slacker();
+            if(file_exists('templates/'.basename($_GET['channel']).'.php')):
+              require 'templates/'.basename($_GET['channel']).'.php';
+            else:
+              require 'templates/introductions.php';
+            endif;
+          endif;
         ?>
       </section><!-- /main -->
       

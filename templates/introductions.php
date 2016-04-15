@@ -1,3 +1,6 @@
+<?php
+  foreach($slack->get_posts($_GET['channel'],true) as $p):
+?>
 <article class="presentation">
   <div class="media">
     <img src="<?php echo $p['user_avatar'] ?>" alt="<?php echo $p['user_name'] ?>'s avatar" title="<?php echo $p['user_name'] ?>">
@@ -7,8 +10,11 @@
     <h5>Uppdaterades <?php echo date('Y-m-d H:i:s',$p['timestamp']) ?></h2>
     <p>
     <?php
-      echo Presentations::format_text($p['text']);
+      echo Slacker::format_text($p['text']);
     ?>
     </p>
   </div>
 </article>
+<?php
+  endforeach;
+?>

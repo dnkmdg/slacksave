@@ -29,6 +29,7 @@
     }
     
     public static function validate_post($post){
-      return (SL_TOKEN == $post['token'] && SL_TEAM == $post['team_id']);
+      $tokens = json_decode(SL_TOKEN,true);
+      return (SL_TEAM == $post['team_id']);
     }
   }

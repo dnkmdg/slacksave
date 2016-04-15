@@ -1,5 +1,5 @@
 <?php
-  class Presentations {
+  class Slacker {
     function __construct(){
       if(defined('TESTPOST')) $_POST = json_decode(TESTPOST,true);
       
@@ -7,7 +7,7 @@
         $is_valid = Auth::validate_post($_POST);
         
         if($is_valid):   
-          $this->save_presentation($_POST);
+          $this->save_post($_POST);
           die();
         else:
           $this->output_json(array('text'=>RESPONSE_CALL_ERROR));
@@ -24,13 +24,15 @@
       endif;
     }
     
-    function get_presentations(){
+    function get_posts($channel,$unique = false){
       $sql = "
         SELECT
           user_name, user_avatar, timestamp, text 
         FROM 
           intro_post t1 
-        WHERE 
+        WHERE ";
+      if($unique):
+        $sql .= "
           t1.id = (
             SELECT 
               t2.id
@@ -41,15 +43,20 @@
             ORDER BY t2.id DESC
             LIMIT 1
           )
+        AND ";
+      endif;
+      
+      $sql .= " 
+          channel_name = :channel
         ORDER BY user_name;
       ";
       
-      $presentations = Db::select($sql,'assoc');
+      $presentations = Db::select($sql,'assoc',array(':channel'=>$channel));
       
       return $presentations;
     }
     
-    function save_presentation($data){
+    function save_post($data){
       $binds = array_merge(array('id' => null),$data);
       $binds['user_avatar'] = $this->get_avatar($data['user_id']);
       
@@ -65,7 +72,7 @@
       
       try{
         Db::run($sql,$binds);
-        $ret_val = array("text"=>RESPONSE_SAVED_SUCCESS);
+        $ret_val = array("text"=>Slacker::save_response($data['channel_name']));
       } catch(PDOException $ex){
         $ret_val = array("text"=>RESPONSE_SAVED_FAIL);      
       }       
@@ -102,5 +109,21 @@
       }, $text);
       
       return nl2br($text);
+    }
+    public static function get_channels(){
+      $sql = "
+        SELECT 
+          DISTINCT channel_name
+        FROM
+          intro_post
+        ORDER BY 
+          channel_name ASC
+      ";
+      
+      return db::select($sql,'assoc');
+    }
+    public static function save_response($channel){
+      $responses = json_decode(RESPONSES,true);
+      return $responses[$channel];
     }
   }
