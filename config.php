@@ -47,9 +47,12 @@
   define('DBNAME','');  
   
   /* 
-    Define Slack token and Slack team to validate the call, Slack API token to extract user avatars
+    Define Slack token per channel and Slack team to validate the call, Slack API token to extract user avatars
   */   
-  define('SL_TOKEN','');
+  define('SL_TOKEN',json_encode(array(
+    'channel1' => 'XXXXXXXXXXXXXXXXXX',
+    'channel2' => 'XXXXXXXXXXXXXXXXXX',
+  )));
   define('SL_TEAM','');
   define('SL_API_TOKEN','');
   
@@ -58,7 +61,10 @@
     Empty messages are simply ignored
   */
   //Message saved
-  define('RESPONSE_SAVED_SUCCESS','');
+  define('RESPONSES',json_encode(array(
+    'channel1' => "Response for saved post to channel 1",
+    'channel2' => "Response for saved post to channel 2"
+  )));
   //Message save failed
   define('RESPONSE_SAVED_FAIL',''); 
   //Error in Slack call (SL_TOKEN, SL_TEAM)
