@@ -48,10 +48,12 @@
       
       $sql .= " 
           channel_name = :channel
-        ORDER BY user_name;
+        ORDER BY `timestamp` desc;
       ";
+
       
       $presentations = Db::select($sql,'assoc',array(':channel'=>$channel));
+      var_dump($presentations);
       
       return $presentations;
     }
