@@ -53,7 +53,6 @@
 
       
       $presentations = Db::select($sql,'assoc',array(':channel'=>$channel));
-      var_dump($presentations);
       
       return $presentations;
     }
