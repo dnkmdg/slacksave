@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="initial-scale=1.0">
     <!-- !CSS -->
-    <link href='https://fonts.googleapis.com/css?family=Rubik:400,300,500,700,900,300italic,400italic,500italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Rubik:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href="assets/css/style.css?v=1" rel="stylesheet">
     
   </head>
