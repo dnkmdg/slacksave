@@ -7,6 +7,7 @@ When visiting the URL if no POST-data containing the Slack signature is present 
 Rudimentary authentication provided with option to add multiple accounts.
 
 ### To set up:
+- Copy the file config.php.example and name the new file config.php
 - Run MySQL command provided in config.php
 - Edit config.php to match your settings
 - Deploy, abuse and have fun.  
