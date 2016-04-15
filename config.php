@@ -36,15 +36,15 @@
   );
   define('AUTH_USERS',auth::serialized_users($users));
   //Define realm name
-  define('AUTH_REALM','NAME OF REALM');  
+  define('AUTH_REALM','NAME OF REALM');
   
   /* 
     Define DB credentials
   */   
   define('DBUSER','');
   define('DBPASS','');
-  define('DBHOST','');  
-  define('DBNAME','');  
+  define('DBHOST','');
+  define('DBNAME','');
   
   /* 
     Define Slack token per channel and Slack team to validate the call, Slack API token to extract user avatars
