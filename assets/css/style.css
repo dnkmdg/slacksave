@@ -425,8 +425,7 @@ textarea {
 
 
 /* END NORMALIZE : BEGIN FINHACKAT */
-
-body {
+html {
   background: #fafafa;
   font-size: 19px;
   line-height: 26px;
@@ -471,27 +470,28 @@ article.presentation {
   transition: all 0.2s ease-in-out;
   margin: 1em;
   padding: 2em;
+  position: relative;
 }
 
 article.presentation:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-.presentation h2,
-.presentation h5 {
+.presentation .meta {
+  background: #26A69A;
+  color: white;
+  overflow: hidden;
+  padding: 5px;
+  position: absolute;
+}
+
+.presentation h2 {
   margin: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .presentation h2 {
   font-weight: 500;
-}
-  
-.presentation h5 {
-  color: #9E9E9E;
-  font-size: .625em;
-  font-style: normal;
-  font-weight: normal;
 }
 
 .presentation .content p {
@@ -502,11 +502,71 @@ article.presentation:hover {
 
 .presentation .media {
   max-width: 120px;
-  margin: 0;
+  margin: 0 auto 0.5rem;
 }
 
-  .media img {
-    max-width: 100%;
-    border-radius: 120px;
+.media img {
+  max-width: 100%;
+  border-radius: 120px;
+}
+
+@media (min-width: 601px) {
+  .presentation .meta {
+    left: -60px;
+    top: 1em;
+    width: 50px;
   }
+
+  .presentation .meta .meta__update .meta__update__year {
+    font-weight: 700;
+    line-height: 1em;
+  }
+
+  .presentation .meta .meta__update .meta__update__date {
+    font-size: 0.75em;
+    line-height: 1em;
+  }
+  .presentation .meta .meta__update .meta__update__time:before {
+    content: "kl.";
+  }
+
+  .presentation .meta .meta__update .meta__update__time {
+    font-size: 0.625em;
+    line-height: 1em;
+  }
+}
+@media (max-width: 600px) {
+  article.presentation {
+    margin: 2em 0;
+  }
+
+  article.presentation h2 {
+    font-size: 1rem;
+  }
+
+  article.presentation p {
+    font-size: 0.75rem;
+  }
+
+  .presentation .meta {
+    bottom: -16px;
+    font-size: 0.75em;
+    line-height: 1.6em;
+  }
+
+  .presentation .meta .meta__update .meta__update__year {
+    font-weight: 700;
+  }
+  .presentation .meta .meta__update .meta__update__year:after {
+    content: "-";
+  }
+
+  .presentation .meta .meta__update .meta__update__time:before {
+    content: "kl. ";
+  }
+  .presentation .meta .meta__update .meta__update__time {
+    margin-left: 1em;
+  }
+
+}
 

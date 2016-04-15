@@ -11,7 +11,19 @@
     <div class="header">
       <h2>@<?php echo $p['user_name'] ?></h2>
     </div>
-    <h5>Uppdaterades <?php echo date('Y-m-d H:i:s',$p['timestamp']) ?></h2>
+    <div class="meta">
+      <div class="meta__update">
+        <span class="meta__update__year">
+          <?php echo date('Y', $p['timestamp']); ?>
+        </span>
+        <span class="meta__update__date">
+          <?php echo date('m / d', $p['timestamp']); ?>
+        </span>
+        <span class="meta__update__time">
+          <?php echo date('H:i', $p['timestamp']); ?>
+        </span>
+      </div>
+    </div>
     <p>
     <?php
       echo Slacker::format_text($p['text']);
